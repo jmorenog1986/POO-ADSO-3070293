@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Mi Óptica Loca</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/all.min.css" rel="stylesheet">
+   
+
+    <link href="css/micss/basic.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-glasses me-2"></i>Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-concierge-bell me-2"></i>Servicios</a>
+                    </li>
+                </ul>
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                </form>
+                <button class="btn btn-primary" onclick="cerrarSesion()">
+                    <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Container -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-item active">
+                <i class="fas fa-users me-2"></i>Ver usuarios
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-cog me-2"></i>Otras cosas
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-ellipsis-h me-2"></i>...
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-card">
+                <h3 class="form-title"><i class="fas fa-user-edit me-2"></i>Gestión de Usuario</h3>
+                
+                <form id="adminForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="userId" class="form-label">ID</label>
+                            <input type="text" class="form-control" id="userId" name="userId" value="1" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="adminDocumento" class="form-label">Documento <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="adminDocumento" name="documento" value="1012...">
+                            <div class="error-message" id="errorAdminDocumento">El documento es requerido y debe ser numérico</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="adminNombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="adminNombre" name="nombre" value="Pepito">
+                            <div class="error-message" id="errorAdminNombre">El nombre es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="adminApellido" class="form-label">Apellido <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="adminApellido" name="apellido" value="Pérez">
+                            <div class="error-message" id="errorAdminApellido">El apellido es requerido</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="adminCorreo" class="form-label">Correo <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="adminCorreo" name="correo" value="pp@gmail.com">
+                            <div class="error-message" id="errorAdminCorreo">Ingrese un correo electrónico válido</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="adminTelefono" class="form-label">Teléfono <span class="text-danger">*</span></label>
+                            <input type="tel" class="form-control" id="adminTelefono" name="telefono" value="1234567">
+                            <div class="error-message" id="errorAdminTelefono">El teléfono es requerido y debe ser numérico</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="adminFecha" class="form-label">Fecha de nacimiento <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="adminFecha" name="fechaNacimiento" value="14/02/1990">
+                            <div class="error-message" id="errorAdminFecha">La fecha de nacimiento es requerida</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="adminGenero" class="form-label">Genero <span class="text-danger">*</span></label>
+                            <select class="form-select" id="adminGenero" name="genero">
+                                <option value="">Seleccione...</option>
+                                <option value="masculino" selected>Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <div class="error-message" id="errorAdminGenero">Debe seleccionar un género</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="adminRol" class="form-label">Rol <span class="text-danger">*</span></label>
+                            <select class="form-select" id="adminRol" name="rol">
+                                <option value="">Seleccione...</option>
+                                <option value="admin">Administrador</option>
+                                <option value="cliente" selected>Cliente</option>
+                                <option value="empleado">Empleado</option>
+                            </select>
+                            <div class="error-message" id="errorAdminRol">Debe seleccionar un rol</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="resetPassword">
+                            <label class="form-check-label" for="resetPassword">
+                                ¿Restaurar contraseña?
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="button" class="btn btn-danger" onclick="eliminarUsuario()">
+                            <i class="fas fa-trash-alt me-2"></i>Eliminar
+                        </button>
+                        <button type="button" class="btn btn-success" onclick="actualizarUsuario()">
+                            <i class="fas fa-sync-alt me-2"></i>Actualizar
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-2"></i>Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/mijs/administracionUsuarios.js"></script>
+</body>
+</html>

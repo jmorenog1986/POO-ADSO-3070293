@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Mi Óptica Loca</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    
+    
+    <link href="css/micss/basic.css" rel="stylesheet">
+    <link href="css/micss/formulario.css" rel="stylesheet">
+       
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-glasses me-2"></i>Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-concierge-bell me-2"></i>Servicios</a>
+                    </li>
+                </ul>
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                </form>
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-user me-2"></i>Login
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Form -->
+    <div class="container">
+        <div class="registration-container">
+            <h2 class="page-title"><i class="fas fa-user-plus me-2"></i>Crear Cuenta Nueva</h2>
+            <form id="registroForm" method="post" action="RegistroUsuarios">
+                <div class="mb-3">
+                    <label for="documento" class="form-label">Documento <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="documento" name="documento" placeholder="Ingrese su número de documento">
+                    <div class="error-message" id="errorDocumento">El documento es requerido y debe ser numérico</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+                    <div class="error-message" id="errorNombre">El nombre es requerido</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="apellido" class="form-label">Apellido <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese su apellido">
+                    <div class="error-message" id="errorApellido">El apellido es requerido</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="correo" class="form-label">Correo <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="correo" name="correo" placeholder="ejemplo@correo.com">
+                    <div class="error-message" id="errorCorreo">Ingrese un correo electrónico válido</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono <span class="text-danger">*</span></label>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su teléfono">
+                    <div class="error-message" id="errorTelefono">El teléfono es requerido y debe ser numérico</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="fechaNacimiento" class="form-label">Fecha de nacimiento <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Seleccione una fecha" readonly>
+                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                    </div>
+                    <div class="error-message" id="errorFecha">La fecha de nacimiento es requerida</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="genero" class="form-label">Genero <span class="text-danger">*</span></label>
+                    <select class="form-select" id="genero" name="genero">
+                        <option value="">Seleccione...</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                        <option value="O">Otro</option>
+                    </select>
+                    <div class="error-message" id="errorGenero">Debe seleccionar un género</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="contrasena" class="form-label">Contraseña <span class="text-danger">*</span></label>
+                    <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
+                    <div class="error-message" id="errorContrasena">La contraseña debe tener al menos 6 caracteres</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="repetirContrasena" class="form-label">Repetir Contraseña <span class="text-danger">*</span></label>
+                    <input type="password" class="form-control" id="repetirContrasena" name="repetirContrasena" placeholder="Repita su contraseña">
+                    <div class="error-message" id="errorRepetirContrasena">Las contraseñas no coinciden</div>
+                </div>
+
+                <div class="d-grid gap-2 mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="fas fa-save me-2"></i>Guardar
+                    </button>
+                    <a href="index.html" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Volver
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.es.min.js"></script>
+    <script src="js/mijs/registroUsuarios.js"></script>
+</body>
+</html>
